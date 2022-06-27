@@ -3,7 +3,7 @@ import AWS from "aws-sdk";
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export const main = handler(async (event) => {
+export async function main(event) {
   // Request body is passed in as a JSON encoded string in 'event.body'
   const data = JSON.parse(event.body);
 
@@ -32,4 +32,4 @@ export const main = handler(async (event) => {
       body: JSON.stringify({ error: e.message }),
     };
   }
-});
+}
